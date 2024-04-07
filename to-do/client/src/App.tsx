@@ -106,7 +106,7 @@ function App() {
       });
       return;
     } else {
-      const message = `'New Todo was ${isEditing ? 'updated' : 'added'} successfully.`;
+      const message = `New Todo was ${isEditing ? 'updated' : 'added'} successfully.`;
 
       addNotification({
         id: new Date().getTime().toString(),

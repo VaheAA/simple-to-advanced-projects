@@ -17,7 +17,7 @@ export default function TodoListItem({
   editTodoItem
 }: TodoItemProps) {
   return (
-    <div className="min-w-[300px] rounded overflow-hidden shadow-lg p-3 bg-white">
+    <div className="min-w-[300px] rounded overflow-hidden shadow-xl p-3 bg-white">
       <div className="px-3 py-2">
         <div className="font-bold text-xl mb-2">{title}</div>
         <p className="text-gray-700 text-base">{description}</p>

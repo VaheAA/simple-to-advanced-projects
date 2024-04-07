@@ -1,0 +1,10 @@
+Dockerfile
+docker*.yaml
+
+.git
+.gitignore
+.config
+
+.npm
+node_modules
+nodemon.json

@@ -8,9 +8,3 @@ Features:
 Create, read, update, and delete (CRUD) Todo items.
 Persistent Todo storage using MySQL database.
 Clean UI powered by React, TypeScript, and Tailwind CSS.
-Getting Started:
-
-Ensure you have Docker and Docker Compose installed.
-Clone the repository.
-Run docker-compose up -d to start the containers.
-Access the app at http://localhost:3000 (or your configured port).

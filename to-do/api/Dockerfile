@@ -1,8 +1,10 @@
 FROM node
 
-WORKDIR usr/src/app
+WORKDIR /src
 
 COPY package*.json ./
 
-RUN npm install concurrently
-RUN npm install
+RUN npm install --verbose
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "dev"]

@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 
 const DATABASE_USER = process.env.DB_USER
 const DATABASE_NAME = process.env.DB_NAME
@@ -10,7 +10,7 @@ const config = {
   database: DATABASE_NAME,
   password: DATABASE_PASSWORD,
   username: DATABASE_USER,
-  host: DATABASE_HOST
+  host: DATABASE_HOST,
 }
 
 export default config

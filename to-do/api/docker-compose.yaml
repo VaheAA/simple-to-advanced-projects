@@ -5,20 +5,21 @@ services:
     container_name: mysql
     image: mysql
     ports:
-      - "3007:3006"
+      - "3306:3306"
+    restart: always
     volumes:
       - /data/mysql:/data/mysql
     env_file:
       - .env
 
-  todoer:
+  app:
     depends_on:
       - mysql
-    container_name: todoer
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./:/src
+      - /src/node_modules
     ports:
-      - '3000:3000'
-    command: npm run dev
-    restart: on-failure
+      - "3000:3000"

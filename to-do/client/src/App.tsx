@@ -11,6 +11,7 @@ import { NotificationContext } from './context/notiification';
 import useFetch from './hooks/useFetch.tsx';
 import { TodoItem } from './core/todo.ts';
 import AppLoader from './components/shared/AppLoader.tsx';
+import { API_URL } from './shared/constants.ts';
 
 const fields = ['title', 'description'];
 
@@ -30,7 +31,7 @@ function App() {
   } = useFetch<TodoItem[]>();
 
   const getTodos = async () => {
-    await fetchRequest('http://localhost:3000/todos');
+    await fetchRequest(`${API_URL}/todos`);
   };
 
   useEffect(() => {
@@ -78,13 +79,19 @@ function App() {
     if (!validateForm()) return;
 
     if (!isEditing) {
-      await fetchRequest('http://localhost:3000/todos', {
+      await fetchRequest(`${API_URL}/todos`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(todoFormData)
       });
     } else {
-      await fetchRequest(`http://localhost:3000/todos/${targetId}`, {
+      await fetchRequest(`${API_URL}/todos/${targetId}`, {
         method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(todoFormData)
       });
       setTargetId(null);
@@ -114,7 +121,7 @@ function App() {
   }
 
   async function deleteTotoItem(id: string) {
-    await fetchRequest(`http://localhost:3000/todos/${id}`, { method: 'DELETE' });
+    await fetchRequest(`${API_URL}/todos/${id}`, { method: 'DELETE' });
 
     if (error) {
       addNotification({
